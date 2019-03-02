@@ -2,25 +2,29 @@
 
 
 <head>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>
-        Online CV of Iris Lee
+        Hi, this is Iris Lee.
     </title>
 
     <style>
         body {
+            background-color: lightcoral;
             font-size: 15px;
         }
         
         h1 {
-            color: aqua;
+            color: rgb(48, 192, 211);
             font-size: 3em;
             text-align: center;
-            background-color: lavender;
+            background-color: rgb(240, 205, 231);
         }
         
         h2 {
             color: bisque;
-            text-align: center;
+            text-align: left;
         }
         
         h1 {
@@ -32,26 +36,97 @@
             text-align: center;
         }
         
+        img {
+            max-width: 100%;
+        }
+        
         #space {
             margin: 5em;
+        }
+        
+        .photo {
+            min-width: 100px;
+            min-height: 100px;
+            background-color: antiquewhite;
+            border: lightblue 1px solid;
+            margin: 5px;
+        }
+        
+        @media (min-width:400px) {
+            .container {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        
+        .headshot {
+            background-color: lightblue;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .profile1,
+        .profile2 {
+            background-color: rgb(176, 115, 233);
+            margin: 2px;
+        }
+        
+        @media (min-width: 600px) {
+            #begin {
+                display: grid;
+                grid-template-columns: 2fr 1fr;
+                grid-template-rows: auto;
+                grid-template-areas: /* prettier-ignore */
+                "hs p1"
+                /* prettier-ignore */
+                "hs p2";
+            }
+            .headshot {
+                grid-area: hs;
+            }
+            .profile1 {
+                grid-area: p1;
+            }
+            .profile2 {
+                grid-area: p2;
+            }
         }
     </style>
 
 </head>
 
 <body>
-    <h1>Online CV of Iris Lee</h1>
+    <h1 class="animated heartbeat">Hi! this is Iris</h1>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
 
     <div id="space"></div>
 
+    <h2>portrait</h2>
+
+    <div id="begin">
+        <div class="headshot">headshot</div>
+        <div class="profile1">profile 1</div>
+        <div class="profile2">profile 2</div>
+    </div>
+
     <h2>Introduction</h2>
 
+    <div class="container">
+        <div class="photo"><img src="images/wallhaven-688773.jpg" alt=""></div>
+        <div class="photo">Photo</div>
+        <div class="photo">Photo</div>
+        <div class="photo">Photo</div>
+    </div>
+
     <h2>Projects</h2>
-    <ul>
-        <li>
-            <a href="../hw1/">my homework1</a>
-        </li>
-    </ul>
+
+    <li>
+        <a href="../hw1/">my homework1</a>
+    </li>
+
     <p>
 
     </p>
