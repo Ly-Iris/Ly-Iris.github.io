@@ -11,37 +11,58 @@
 
     <style>
         body {
-            background-color: lightcoral;
+            background-image: url('../images/wallhaven-688773.jpg');
             font-size: 15px;
+            background-repeat: no-repeat;
+            background-position: 100% center;
+            background-size: cover;
         }
         
-        h1 {
-            color: rgb(48, 192, 211);
-            font-size: 3em;
-            text-align: center;
+        .container1 {
             background-color: rgb(240, 205, 231);
+            font-size: 1em;
+            margin: 80px;
+            text-align: center;
+            border: double;
+        }
+        
+        .card {
+            background: #FFFFFF;
+            min-height: 850px;
+            max-width: 800px;
+            min-width: 400px;
+            margin: 300px;
+            border-radius: 3%;
+            box-shadow: 0 30px 30px 0 rgba(0, 0, 0, 0.50);
+        }
+        
+        #avatar {
+            background-image: url('../images/IMG_0438.png');
+            background-size: contain;
+            margin: -80px 10px 8px 550px;
+            display: inline-block;
+            height: 200px;
+            width: 200px;
+            border: 3px solid rgba(32, 220, 226, 0.5);
+            border-radius: 50%;
+            background-repeat: no-repeat;
+            position: relative;
         }
         
         h2 {
-            color: bisque;
+            color: black;
             text-align: left;
+            font-size: 2em;
         }
         
-        h1 {
-            position: sticky;
-            left: 0;
-            top: 0;
-            width: 100%;
-            margin: 0;
-            text-align: center;
+        .box1 {
+            margin: 40px;
+            pading: 5px;
         }
         
-        img {
-            max-width: 100%;
-        }
-        
-        #space {
-            margin: 5em;
+        .box2 {
+            margin: 40px;
+            pading: 5px;
         }
         
         .photo {
@@ -55,81 +76,69 @@
         @media (min-width:400px) {
             .container {
                 display: grid;
-                grid-template-columns: 1fr 1fr;
+                grid-template-columns: 1fr 1fr 1fr;
             }
         }
         
-        .headshot {
-            background-color: lightblue;
-            width: 300px;
-            height: 300px;
-            border-radius: 50%;
-            margin-left: auto;
-            margin-right: auto;
+        .box3 {
+            margin: 40px;
+            pading: 5px;
+            list-style-image: url('../images/check.png');
         }
         
-        .profile1,
-        .profile2 {
-            background-color: rgb(176, 115, 233);
-            margin: 2px;
-        }
-        
-        @media (min-width: 600px) {
-            #begin {
-                display: grid;
-                grid-template-columns: 2fr 1fr;
-                grid-template-rows: auto;
-                grid-template-areas: /* prettier-ignore */
-                "hs p1"
-                /* prettier-ignore */
-                "hs p2";
-            }
-            .headshot {
-                grid-area: hs;
-            }
-            .profile1 {
-                grid-area: p1;
-            }
-            .profile2 {
-                grid-area: p2;
-            }
+        .box4 {
+            margin: 40px;
+            pading: 5px;
         }
     </style>
 
 </head>
 
 <body>
-    <h1 class="animated heartbeat">Hi! this is Iris</h1>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
-
-    <div id="space"></div>
-
-    <h2>portrait</h2>
-
-    <div id="begin">
-        <div class="headshot">headshot</div>
-        <div class="profile1">profile 1</div>
-        <div class="profile2">profile 2</div>
+    <div class="container1">
+        <h1 class="animated heartbeat">Hi ! this is Iris</h1>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
     </div>
 
-    <h2>Introduction</h2>
+    <div class="card">
+        <div id="avatar"></div>
+        <div class="flex">
+            <div class="box1">
+                <h2>Introduction</h2>
+                <li>Name: LI Yun </li>
+                <li>Age: 19 </li>
+                <li>Gender: F </li>
+                <li>Faculty: year1 of COMM </li>
+                <li>Birthplace: Guizhou Province of China</li>
+            </div>
 
-    <div class="container">
-        <div class="photo"><img src="images/wallhaven-688773.jpg" alt=""></div>
-        <div class="photo">Photo</div>
-        <div class="photo">Photo</div>
-        <div class="photo">Photo</div>
+            <div class="box2">
+                <h2>Portraits</h2>
+                <div class="container2">
+                    <div class="photo">Photo</div>
+                    <div class="photo">Photo</div>
+                    <div class="photo">Photo</div>
+                </div>
+
+            </div>
+
+            <div class="box3">
+                <h2>Skills</h2>
+                <li>photogrophing</li>
+                <li>Photoshop</li>
+                <li>Premiere</li>
+            </div>
+
+            <div class="box4">
+                <h2>Project</h2>
+                <li>
+                    <a href="../hw1/" target="_blank">my homework1</a>
+                </li>
+            </div>
+        </div>
     </div>
 
-    <h2>Projects</h2>
 
-    <li>
-        <a href="../hw1/">my homework1</a>
-    </li>
-
-    <p>
-
-    </p>
 
 
 
