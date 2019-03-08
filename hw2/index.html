@@ -11,8 +11,8 @@
 
     <style>
         body {
-            background-image: url('../images/wallhaven-688773.jpg');
-            font-size: 15px;
+            background-image: url('images/wallhaven-688773.jpg');
+            font-size: 10px;
             background-repeat: no-repeat;
             background-position: 100% center;
             background-size: cover;
@@ -27,38 +27,67 @@
             border: double;
         }
         
+        @media (min-width:500px) {
+            .container1 {
+                font-size: 15px;
+            }
+        }
+        
         .card {
             background: #FFFFFF;
-            min-height: 850px;
+            min-height: 750px;
             max-width: 800px;
-            min-width: 400px;
-            margin: 300px;
+            min-width: 350px;
+            /* margin: 300px; */
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 150px;
             border-radius: 3%;
             box-shadow: 0 30px 30px 0 rgba(0, 0, 0, 0.50);
+            position: relative;
+        }
+        
+        header {
+            color: #FFFFFF;
+            text-align: center;
+            margin-bottom: 120px;
+        }
+        
+        @media (min-width:600px) {
+            header {
+                margin-bottom: 40px;
+            }
+        }
+        
+        footer {
+            color: #FFFFFF;
+            text-align: center;
         }
         
         #avatar {
-            background-image: url('../images/IMG_0438.png');
+            background-image: url('images/IMG_0438.png');
             background-size: contain;
-            margin: -80px 10px 8px 550px;
+            /* margin: -80px 10px 8px 550px; */
+            right: 100px;
+            top: -80px;
             display: inline-block;
             height: 200px;
             width: 200px;
             border: 3px solid rgba(32, 220, 226, 0.5);
             border-radius: 50%;
             background-repeat: no-repeat;
-            position: relative;
+            position: absolute;
         }
         
         h2 {
             color: black;
             text-align: left;
-            font-size: 2em;
+            font-size: 3em;
         }
         
         .box1 {
             margin: 40px;
-            pading: 5px;
+            pading: 10px;
         }
         
         .box2 {
@@ -66,30 +95,77 @@
             pading: 5px;
         }
         
-        .photo {
+        .photo1 {
             max-width: 200px;
             min-height: 150px;
-            background-image: antiquewhite;
+            background-image: url('images/IMG_3468.jpg');
+            background-size: cover;
             border: lightblue 1px solid;
             margin: 5px;
         }
         
-        @media (min-width:400px) {
-            .container {
-                display: table-row;
-                grid-template-rows: 1fr 1fr;
+        .photo2 {
+            max-width: 200px;
+            min-height: 150px;
+            background-image: url('images/picture.jpg');
+            background-size: cover;
+            border: lightblue 1px solid;
+            margin: 5px;
+        }
+        
+        .photo3 {
+            max-width: 200px;
+            min-height: 150px;
+            background-image: url('images/cloud.jpg');
+            border: lightblue 1px solid;
+            margin: 5px;
+        }
+        
+        @media (min-width:500px) {
+            .container2 {
+                display: grid;
+                grid-template-columns: 1fr 1fr 1fr;
             }
         }
         
         .box3 {
             margin: 40px;
-            pading: 5px;
-            list-style-image: url('../images/check.png');
+            list-style-image: url('images/2000px-Check-71-128-204-brightblue.svg.png');
         }
         
         .box4 {
             margin: 40px;
-            pading: 5px;
+            list-style-image: url('images/2000px-Check-71-128-204-brightblue.svg.png');
+        }
+        
+        iframe {
+            width: 290px;
+            height: 180px;
+            margin-top: 40px;
+            position: relative;
+        }
+        
+        @media (min-width:600px) {
+            iframe {
+                min-width: 550px;
+                min-height: 300px;
+            }
+        }
+        
+        @media (min-width:800px) {
+            iframe {
+                margin-left: 10px;
+            }
+        }
+        
+        .box5 {
+            margin: 40px;
+            pading: 40px;
+            position: relative;
+        }
+        
+        li {
+            font-size: 15px;
         }
     </style>
 
@@ -104,6 +180,7 @@
     <div class="card">
         <div id="avatar"></div>
         <div class="flex">
+            <header>Hello</header>
             <div class="box1">
                 <h2>Introduction</h2>
                 <li>Name: LI Yun </li>
@@ -116,26 +193,36 @@
             <div class="box2">
                 <h2>Portraits</h2>
                 <div class="container2">
-                    <div class="photo">Photo</div>
-                    <div class="photo">Photo</div>
-                    <div class="photo">Photo</div>
+                    <div class="photo1"></div>
+                    <div class="photo2"></div>
+                    <div class="photo3"></div>
                 </div>
 
             </div>
 
             <div class="box3">
                 <h2>Skills</h2>
-                <li>photogrophing</li>
-                <li>Photoshop</li>
-                <li>Premiere</li>
+                <div class="container3">
+                    <li>photogrophing</li>
+                    <li>Photoshop</li>
+                    <li>Premiere</li>
+                </div>
             </div>
 
             <div class="box4">
+                <h2>Experience</h2>
+                <li>A trip to Taiwan learning the Elderly Care.</li>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/_hFD9jP2--k" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+
+            <div class="box5">
                 <h2>Project</h2>
                 <li>
                     <a href="../hw1/" target="_blank">my homework1</a>
                 </li>
             </div>
+
+            <footer>Bye</footer>
         </div>
     </div>
 
