@@ -16,6 +16,7 @@
             background-repeat: no-repeat;
             background-position: 100% center;
             background-size: cover;
+            display: block;
         }
         
         .container1 {
@@ -66,17 +67,17 @@
         }
         
         .photo {
-            min-width: 100px;
-            min-height: 100px;
-            background-color: antiquewhite;
+            max-width: 200px;
+            min-height: 150px;
+            background-image: antiquewhite;
             border: lightblue 1px solid;
             margin: 5px;
         }
         
         @media (min-width:400px) {
             .container {
-                display: grid;
-                grid-template-columns: 1fr 1fr 1fr;
+                display: table-row;
+                grid-template-rows: 1fr 1fr;
             }
         }
         
