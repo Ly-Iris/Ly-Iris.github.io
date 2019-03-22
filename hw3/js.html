@@ -1,0 +1,76 @@
+<head>
+
+    <style>
+        h1 {
+            text-align: center;
+            color: royalblue;
+            top: 10px;
+        }
+        
+        p {
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+        
+        div {
+            margin-left: 50px;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <h1>
+        What is your level of living?
+    </h1>
+
+    <P><strong>Engel's law</strong> is an observation in economics stating that as income rises, the proportion of income spent on food falls, even if absolute expenditure on food rises. In other words, the income elasticity of demand of food is between
+        0 and 1.
+    </P>
+
+    <p>One application of this statistic is treating it as a reflection of the <strong>living standard</strong> of a country. As this proportion — or "Engel coefficient" — increases, the country is by nature poorer; conversely a low Engel coefficient indicates
+        a higher standard of living.
+    </p>
+
+    <p>
+        You can just input your food spending and total expenditure to see how's your life.
+    </p>
+
+    <div>
+        Your food expenditure:
+        <input id="food" type="number" value="4000">
+        <br> Your total expenditure:
+        <input id="total" type="number" value="10000">
+        <br>
+        <button id="cal">Calculate</button>
+        <br> Result:
+        <input id="result" type="percentage">
+    </div>
+
+    <p>
+        Engel coefficient above 59% for poverty, 50-59% for food and clothing, 40-50% for well-off, 30-40% for rich, less than 30% for the richest.
+    </p>
+
+
+    <script>
+        function calculate() {
+            a = document.getElementById("food").value
+            b = document.getElementById("total").value
+            result = a / b;
+
+            document.getElementById("result").value = result
+        }
+
+        document.getElementById("cal").addEventListener('click', calculate)
+        document.getElementById("food").addEventListener('change', calculate)
+        document.getElementById("food").addEventListener('keyup', calculate)
+        document.getElementById("tptal").addEventListener('change', calculate)
+        document.getElementById("total").addEventListener('keyup', calculate)
+
+        // result = Math.pow(a, b)
+        // console.log('result:')
+        // console.log(result)
+    </script>
+
+</body>
