@@ -1,0 +1,140 @@
+<html>
+
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        h1 {
+            background-color: rgb(252, 208, 88);
+            font-size: 40px;
+            margin: 30px;
+            text-align: center;
+            border: 1px solid;
+        }
+        
+        @media (min-width:500px) {
+            .h1 {
+                font-size: 50px;
+            }
+        }
+        
+        .box {
+            margin: 40px;
+        }
+        
+        img {
+            max-width: 100%;
+        }
+    </style>
+
+
+</head>
+
+<body>
+    <h1>
+        图表重建
+    </h1>
+    <div class="box">
+        <h2>原始图片</h2>
+        <div class="container">
+            <img src="image/春运图表.png" alt="">
+        </div>
+        <li>
+            <a href="http://www.mot.gov.cn/zhuanti/2016chunyun_ZT/tupianxinwen/201602/t20160214_1987768.html" target="_blank">原始网页</a>
+        </li>
+    </div>
+
+    <div class="box">
+        <h2>解读</h2>
+        <p>
+            原始图表希望通过pie chart来展现2016年春运期间市民们所选择的交通工具占比，同时也标示了客流量的多少及其增长率，但此图表并未能清晰展现出客流量的多少及其增长率，故新制图表一张，辅以说明。
+        </p>
+    </div>
+
+    <div class="box">
+        <h2>补充图表</h2>
+        <script src="../../Highcharts-7/code/highcharts.js"></script>
+        <script src="../../Highcharts-7/code/modules/exporting.js"></script>
+        <script src="../../Highcharts-7/code/modules/export-data.js"></script>
+
+        <div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+
+        <script type="text/javascript">
+            Highcharts.chart('container', {
+                chart: {
+                    zoomType: 'xy'
+                },
+                title: {
+                    text: '2016年春运期间各交通方式客流量'
+                },
+                subtitle: {
+                    text: 'Source: mot.gov.cn'
+                },
+                xAxis: [{
+                    categories: ['铁路', '公路', '民航', '水路'],
+                    crosshair: true
+                }],
+                yAxis: [{ // Primary yAxis
+                    title: {
+                        text: '增长率',
+                        style: {
+                            color: Highcharts.getOptions().colors[1]
+                        }
+                    },
+                    labels: {
+                        format: '{value} %',
+                        style: {
+                            color: Highcharts.getOptions().colors[1]
+                        }
+                    },
+                }, { // Secondary yAxis
+                    title: {
+                        text: '人次（万）',
+                        style: {
+                            color: Highcharts.getOptions().colors[0]
+                        }
+                    },
+                    labels: {
+                        style: {
+                            color: Highcharts.getOptions().colors[0]
+                        }
+                    },
+                    opposite: true
+                }],
+                tooltip: {
+                    shared: true
+                },
+                legend: {
+                    layout: 'vertical',
+                    align: 'left',
+                    x: 300,
+                    verticalAlign: 'top',
+                    y: 100,
+                    floating: true,
+                    backgroundColor: (Highcharts.theme && Highcharts.theme.legendBackgroundColor) || 'rgba(255,255,255,0.25)'
+                },
+                series: [{
+                    name: '客流量',
+                    type: 'column',
+                    yAxis: 1,
+                    data: [15000, 118000, 2499.7, 2164.9],
+                    tooltip: {
+                        valueSuffix: '万'
+                    }
+
+                }, {
+                    name: '增长率',
+                    type: 'spline',
+                    data: [9.1, 2.8, 3.1, -3.2],
+                    tooltip: {
+                        valueSuffix: '%'
+                    }
+                }]
+            });
+        </script>
+    </div>
+
+</body>
+
+</html>

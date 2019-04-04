@@ -220,13 +220,74 @@
                 </li>
             </div>
 
+            <div id="container" style="min-width: 310px; max-width: 800px; height: 400px; margin: 0 auto"></div>
+            <script src="Highcharts-7/code/highcharts.js"></script>
+            <script src="Highcharts-7/code/modules/exporting.js"></script>
+            <script src="Highcharts-7/code/modules/export-data.js"></script>
+            <script type="text/javascript">
+                Highcharts.chart('container', {
+                    chart: {
+                        type: 'line'
+                    },
+                    title: {
+                        text: 'Number of poor population'
+                    },
+                    subtitle: {
+                        text: 'Source: <a href="https://en.wikipedia.org/wiki/World_population">Wikipedia.org</a>'
+                    },
+                    xAxis: {
+                        categories: ['Below 18', '18~64', '65 and above', 'Overall'],
+                        title: {
+                            text: null
+                        }
+                    },
+                    yAxis: {
+                        min: 0,
+                        title: {
+                            text: 'Population (millions)',
+                            align: 'high'
+                        },
+                        labels: {
+                            overflow: 'justify'
+                        }
+                    },
+                    tooltip: {
+                        valueSuffix: ' millions'
+                    },
+                    plotOptions: {
+                        bar: {
+                            dataLabels: {
+                                enabled: true
+                            }
+                        }
+                    },
+                    legend: {
+                        layout: 'vertical',
+                        align: 'right',
+                        verticalAlign: 'top',
+                        x: -40,
+                        y: 80,
+                        floating: true,
+                        borderWidth: 1,
+                        backgroundColor: ((Highcharts.theme && Highcharts.theme.legendBackgroundColor) || '#FFFFFF'),
+                        shadow: true
+                    },
+                    credits: {
+                        enabled: false
+                    },
+                    series: [{
+                        name: 'Year 2015',
+                        data: [182.3, 480.7, 308.5, 971.4]
+                    }, {
+                        name: 'Year 2016',
+                        data: [171.6, 486.8, 377.4, 995.8]
+                    }]
+                });
+            </script>
+
             <footer>Bye</footer>
         </div>
     </div>
-
-
-
-
 
 </body>
 
