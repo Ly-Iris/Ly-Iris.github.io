@@ -1,0 +1,109 @@
+<html>
+
+<body>
+    <script src="../../Highcharts-7/code/highcharts.js"></script>
+    <script src="../../Highcharts-7/code/highcharts-more.js"></script>
+    <script src="../../Highcharts-7/code/modules/exporting.js"></script>
+    <script src="../../Highcharts-7/code/modules/export-data.js"></script>
+
+    <div id="container" style="height: 400px; min-width: 310px; max-width: 600px; margin: 0 auto"></div>
+
+
+    <script type="text/javascript">
+        Highcharts.chart('container', {
+
+            chart: {
+                type: 'bubble',
+                plotBorderWidth: 1,
+                zoomType: 'xy'
+            },
+
+            legend: {
+                enabled: false
+            },
+
+            title: {
+                text: 'Elderly persons aged 60 and over living alone by type of housing resided in  '
+            },
+
+            subtitle: {
+                text: 'Source: <a href="https://www.statistics.gov.hk/pub/B11301241999XXXXB0100.pdf">GovHK</a> '
+            },
+
+            xAxis: {
+                gridLineWidth: 1,
+                title: {
+                    text: 'Number(thousand)'
+                },
+            },
+
+            yAxis: {
+                startOnTick: false,
+                endOnTick: false,
+                title: {
+                    text: 'Percentage'
+                },
+                labels: {
+                    format: '{value} %'
+                },
+                maxPadding: 0.2,
+            },
+
+            tooltip: {
+                useHTML: true,
+                headerFormat: '<table>',
+                pointFormat: '<tr><th colspan="2"><h3>{point.type}</h3></th></tr>' +
+                    '<tr><th>Number:</th><td>{point.x}</td></tr>' +
+                    '<tr><th>Percentage:</th><td>{point.y}%</td></tr>',
+                footerFormat: '</table>',
+                followPointer: true
+            },
+
+            plotOptions: {
+                series: {
+                    dataLabels: {
+                        enabled: true,
+                        format: '{point.name}'
+                    }
+                }
+            },
+
+            series: [{
+                data: [{
+                    x: 44.8,
+                    y: 52.80,
+                    z: 52.8,
+                    name: 'PRH',
+                    type: 'Public Rental Housing'
+                }, {
+                    x: 2.4,
+                    y: 2.80,
+                    z: 2.8,
+                    name: 'SSF',
+                    type: 'Subsidized Sale Flats'
+                }, {
+                    x: 33.4,
+                    y: 39.30,
+                    z: 39.3,
+                    name: 'PPH',
+                    type: 'Private Permanent Housing'
+                }, {
+                    x: 4.3,
+                    y: 5.10,
+                    z: 5.1,
+                    name: 'TH',
+                    type: 'Temporary Housing'
+                }]
+            }]
+
+        });
+    </script>
+
+
+
+
+
+
+</body>
+
+</html>
