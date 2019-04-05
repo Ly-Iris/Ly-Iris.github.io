@@ -8,6 +8,7 @@
         h1 {
             background-color: rgb(252, 208, 88);
             font-size: 40px;
+            color: darkslategray;
             margin: 30px;
             text-align: center;
             border: 1px solid;
@@ -26,6 +27,13 @@
         img {
             max-width: 100%;
         }
+        
+        @media (min-width:500px) {
+            .legend {
+                x: 300;
+                y: 100;
+            }
+        }
     </style>
 
 
@@ -33,7 +41,7 @@
 
 <body>
     <h1>
-        图表重建
+        2016年春运期间旅客发送人次
     </h1>
     <div class="box">
         <h2>原始图片</h2>
@@ -108,7 +116,7 @@
                 legend: {
                     layout: 'vertical',
                     align: 'left',
-                    x: 300,
+                    x: 150,
                     verticalAlign: 'top',
                     y: 100,
                     floating: true,
