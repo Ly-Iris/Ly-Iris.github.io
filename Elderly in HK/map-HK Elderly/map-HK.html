@@ -57,17 +57,11 @@
                     tickPixelInterval: 100
                 },
 
-
-                // tooltip: {
-                //     pointFormat: '{series.name}: <b>{point.sa}</b><br/>',
-                //     valueSuffix: ' ',
-                //     shared: true
-                // },
                 series: [{
                     data: data,
                     keys: ['DC_ENG', 'value'],
                     joinBy: 'DC_ENG',
-                    name: 'Random data',
+                    name: 'Number of elderly care centers',
                     states: {
                         hover: {
                             color: '#a4edba'
@@ -77,6 +71,9 @@
                     dataLabels: {
                         enabled: true,
                         format: '{point.properties.postal}'
+                    },
+                    tooltip: {
+                        pointFormat: '{point.DC_ENG}: {point.value}'
                     }
                 }]
             });
