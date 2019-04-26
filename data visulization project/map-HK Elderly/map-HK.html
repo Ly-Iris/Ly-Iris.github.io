@@ -1,0 +1,88 @@
+<html>
+
+<body>
+    <div id='container'></div>
+
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="../../Highmaps-7/code/highmaps.js"></script>
+    <script src="../../Highmaps-7/code/modules/data.js"></script>
+    <script src="../../Highmaps-7/code/modules/exporting.js"></script>
+    <script src="../../Highmaps-7/code/modules/offline-exporting.js"></script>
+    <script src="world.js"></script>
+
+
+    <script type="text/javascript">
+        // Prepare random data
+        var data = [
+            ['Central & Western', 25],
+            ['Southern', 25],
+            ['Islands', 25],
+            ['Eastern', 21],
+            ['Wan Chai', 21],
+            ['Kwun Tong', 25],
+            ['Wong Tai Sin', 25],
+            ['Sai Kung', 25],
+            ['Kowloon City', 24],
+            ['Yau Tsim Mong', 24],
+            ['Shan Shui Po', 15],
+            ['Sha Tin', 16],
+            ['Tai Po', 14],
+            ['North', 14],
+            ['Yuen Long', 10],
+            ['Tsuen Wan', 25],
+            ['Kwai Tsing', 25],
+            ['Tuen Mun', 3]
+        ];
+
+        $.getJSON('dc_land.lowres.geo.json.txt', function(geojson) {
+
+            // Initiate the chart
+            Highcharts.mapChart('container', {
+                chart: {
+                    map: geojson
+                },
+
+                title: {
+                    text: 'HK elderly care centers for 18 districts'
+                },
+
+                mapNavigation: {
+                    enabled: true,
+                    buttonOptions: {
+                        verticalAlign: 'bottom'
+                    }
+                },
+
+                colorAxis: {
+                    tickPixelInterval: 100
+                },
+
+
+                // tooltip: {
+                //     pointFormat: '{series.name}: <b>{point.sa}</b><br/>',
+                //     valueSuffix: ' ',
+                //     shared: true
+                // },
+                series: [{
+                    data: data,
+                    keys: ['DC_ENG', 'value'],
+                    joinBy: 'DC_ENG',
+                    name: 'Random data',
+                    states: {
+                        hover: {
+                            color: '#a4edba'
+                        }
+                    },
+
+                    dataLabels: {
+                        enabled: true,
+                        format: '{point.properties.postal}'
+                    }
+                }]
+            });
+        });
+    </script>
+
+</body>
+
+</html>

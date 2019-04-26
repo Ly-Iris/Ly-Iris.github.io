@@ -1,0 +1,118 @@
+<html>
+
+<head>
+    <style>
+        #container {
+            min-width: 320px;
+            max-width: 800px;
+            margin: 0 auto;
+            height: 500px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>
+        Beer family tree
+    </h1>
+
+    <script src="http://code.highcharts.com/highcharts.js"></script>
+    <script src="http://code.highcharts.com/gantt/modules/networkgraph.js"></script>
+    <div id="container"></div>
+
+    <script>
+        Highcharts.addEvent(
+            Highcharts.seriesTypes.networkgraph,
+            'afterSetOptions',
+            function(e) {
+                var colors = Highcharts.getOptions().colors,
+                    i = 0,
+                    nodes = {};
+                e.options.data.forEach(function(link) {
+
+                    if (link[0] === 'Proto Indo-European') {
+                        nodes['Proto Indo-European'] = {
+                            id: 'Proto Indo-European',
+                            marker: {
+                                radius: 28
+                            }
+                        };
+                        nodes[link[1]] = {
+                            id: link[1],
+                            marker: {
+                                radius: 18
+                            },
+                            color: colors[i++]
+                        };
+                    } else if (nodes[link[0]] && nodes[link[0]].color) {
+                        nodes[link[1]] = {
+                            id: link[1],
+                            color: nodes[link[0]].color
+                        };
+                    }
+                });
+
+                e.options.nodes = Object.keys(nodes).map(function(id) {
+                    return nodes[id];
+                });
+            }
+        );
+
+        Highcharts.chart('container', {
+            chart: {
+                type: 'networkgraph',
+                marginTop: 80
+            },
+            title: {
+                text: 'Relationship of craft beer'
+            },
+            subtitle: {
+                text: 'A Force-Directed Network Graph in Highcharts'
+            },
+            plotOptions: {
+                networkgraph: {
+                    keys: ['from', 'to'],
+                    layoutAlgorithm: {
+                        enableSimulation: true,
+                        integration: 'verlet',
+                        linkLength: 100
+                    }
+                }
+            },
+            series: [{
+                marker: {
+                    radius: 13
+                },
+                dataLabels: {
+                    enabled: true,
+                    textPath: {
+                        enabled: true
+                    },
+                    linkFormat: '',
+                    allowOverlap: true
+                },
+                data: [
+                    ['Beers', 'Ales'],
+                    ['Beers', 'Lagers'],
+                    ['Lagers', 'German lager'],
+                    ['Lagers', 'European lager'],
+                    ['Lagers', 'Pilsner'],
+                    ['Lagers', 'American lager'],
+                    ['Lagers', 'Altbier'],
+                    ['Lagers', 'Sanskrit'],
+                    ['Ales', 'Osco-Umbrian'],
+                    ['Ales', 'Latino-Faliscan'],
+                    ['Ales', 'Latin'],
+                    ['Ales', 'Brythonic'],
+                    ['Ales', 'Goidelic'],
+                    ['Ales', 'Goidelic'],
+                    ['Ales', 'Goidelic'],
+                    ['Ales', 'Goidelic'],
+                    ['Ales', 'Goidelic']
+                ]
+            }]
+        });
+    </script>
+</body>
+
+</html>

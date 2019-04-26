@@ -1,0 +1,97 @@
+<html>
+
+<body>
+    <!DOCTYPE HTML>
+    <html>
+
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Highcharts Example</title>
+
+        <style type="text/css">
+
+        </style>
+    </head>
+
+    <body>
+        <script src="../../Highcharts-7/code/highcharts.js"></script>
+        <script src="../../Highcharts-7/code/modules/exporting.js"></script>
+        <script src="../../Highcharts-7/code/modules/export-data.js"></script>
+
+        <div id="container" style="min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto"></div>
+
+
+
+        <script type="text/javascript">
+            Highcharts.setOptions({
+                colors: Highcharts.map(Highcharts.getOptions().colors, function(color) {
+                    return {
+                        radialGradient: {
+                            cx: 0.9,
+                            cy: 0.1,
+                            r: 0.6
+                        },
+                        stops: [
+                            [0.5, color],
+                            [1, Highcharts.Color(color).brighten(-0.1).get('rgb')] // darken
+                        ]
+                    };
+                })
+            });
+
+            Highcharts.chart('container', {
+                chart: {
+                    plotBackgroundColor: null,
+                    plotBorderWidth: null,
+                    plotShadow: false,
+                    type: 'pie'
+                },
+                title: {
+                    text: 'Elderly persons aged 60 and over living alone by monthly personal income'
+                },
+                tooltip: {
+                    pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+                },
+                plotOptions: {
+                    pie: {
+                        allowPointSelect: true,
+                        cursor: 'pointer',
+                        dataLabels: {
+                            enabled: true,
+                            format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+                            style: {
+                                color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+                            },
+                            connectorColor: 'silver'
+                        }
+                    }
+                },
+                series: [{
+                    name: 'Share',
+                    data: [{
+                            name: '< HK$3000',
+                            y: 38300
+                        }, {
+                            name: 'HK$3000-HK$3999',
+                            y: 27800
+                        }, {
+                            name: 'HK$4000-HK$5999',
+                            y: 9500
+                        }, {
+                            name: '>=HK$6000 ',
+                            y: 9100
+                        },
+
+                    ]
+                }]
+            });
+        </script>
+    </body>
+
+    </html>
+
+</body>
+
+
+</html>
