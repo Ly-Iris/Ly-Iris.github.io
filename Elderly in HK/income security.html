@@ -1,96 +1,88 @@
 <!DOCTYPE HTML>
 <html>
+  <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <title>Highcharts Example</title>
 
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Highcharts Example</title>
+      <style type="text/css">
 
-    <style type="text/css">
-
-    </style>
-</head>
-
-<body>
-    <script src="../Highcharts-7/code/highcharts.js"></script>
-    <script src="../Highcharts-7/code/modules/heatmap.js"></script>
-    <script src="../Highcharts-7/code/modules/exporting.js"></script>
+      </style>
+  </head>
+  <body>
+<script src="../../code/highcharts.js"></script>
+<script src="../../code/modules/heatmap.js"></script>
+<script src="../../code/modules/exporting.js"></script>
 
 
-    <div id="container" style="height: 400px; min-width: 310px; max-width: 800px; margin: 0 auto"></div>
+<div id="container" style="height: 400px; min-width: 310px; max-width: 800px; margin: 0 auto"></div>
 
 
-    <script type="text/javascript">
-        Highcharts.chart('container', {
-
-            chart: {
-                type: 'heatmap',
-                marginTop: 40,
-                marginBottom: 80,
-                plotBorderWidth: 1
-            },
+      <script type="text/javascript">
 
 
-            title: {
-                text: 'Income Security'
-            },
+Highcharts.chart('container', {
 
-            xAxis: {
-                categories: ['2014', '2015', '2016']
-            },
+ chart: {
+     type: 'heatmap',
+     marginTop: 40,
+     marginBottom: 80,
+     plotBorderWidth: 1
+ },
 
-            yAxis: {
-                categories: ['GDP per capital', 'Relative walfare of older people', 'Poverty risk in old age', 'Pension income coverage'],
-                title: null
-            },
 
-            colorAxis: {
-                min: 0,
-                minColor: '#FFFFFF',
-                maxColor: Highcharts.getOptions().colors[0]
-            },
+ title: {
+     text: 'Income Security'
+ },
 
-            legend: {
-                align: 'right',
-                layout: 'vertical',
-                margin: 0,
-                verticalAlign: 'top',
-                y: 25,
-                symbolHeight: 280
-            },
+ xAxis: {
+     categories: ['2014', '2015', '2016']
+ },
 
-            tooltip: {
-                formatter: function() {
-                    return '<b>' + this.series.xAxis.categories[this.point.x] + '</b> Ranking <br><b>' +
-                        this.point.value + '</b> place out of 97 countries <br><b>' + this.series.yAxis.categories[this.point.y] + '</b>';
-                }
-            },
+ yAxis: {
+     categories: ['Pension income coverage', 'Poverty risk in old age', 'Relative walfare of older people', 'GPA per capital'],
+     title: null
+ },
 
-            series: [{
-                name: 'Heat map',
-                borderWidth: 1,
-                data: [
-                    [0, 0, 2],
-                    [0, 1, 77],
-                    [0, 2, 93],
-                    [0, 3, 60],
-                    [1, 0, 4],
-                    [1, 1, 87],
-                    [1, 2, 95],
-                    [1, 3, 60],
-                    [2, 0, 4],
-                    [2, 1, 83],
-                    [2, 2, 94],
-                    [2, 3, 60]
-                ],
-                dataLabels: {
-                    enabled: true,
-                    color: '#000000'
-                }
-            }]
+ colorAxis: {
+     min: 0,
+     minColor: '#FFFFFF',
+     maxColor: Highcharts.getOptions().colors[0]
+ },
 
-        });
-    </script>
-</body>
+ legend: {
+     align: 'right',
+     layout: 'vertical',
+     margin: 0,
+     verticalAlign: 'top',
+     y: 25,
+     symbolHeight: 280
+ },
 
+ tooltip: {
+     formatter: function () {
+         return '<b>' + this.series.xAxis.categories[this.point.x] + '</b> Rank <br><b>' +
+             this.point.value + '</b> place put of 97 countries <br><b>' + this.series.yAxis.categories[this.point.y] + '</b>';
+     }
+ },
+
+ series: [{
+     name: 'Heat map',
+     borderWidth: 1,
+     data: [[0, 0, 60], [0, 1, 93], [0, 2, 77], [0, 3, 2], [1, 0, 60], [1, 1, 95], [1, 2, 87], [1, 3, 4], [2, 0, 60], [2, 1, 94], [2, 2, 83], [2, 3, 4]],
+     dataLabels: {
+         enabled: true,
+         color: '#000000'
+     }
+ }]
+
+});
+      </script>
+  </body>
 </html>
+
+
+
+
+
+
